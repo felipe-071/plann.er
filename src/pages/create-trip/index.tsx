@@ -1,7 +1,7 @@
 import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2, X, AtSign, Plus, User } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 
-export function App() {
+export function CreateTripPage() {
 
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
   const [isGuestsMoldalOpen, setIsGuestsMoldalOpen] = useState(false);
