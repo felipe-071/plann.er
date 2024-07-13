@@ -86,3 +86,39 @@ A propriedade "truncate" encurta um link grande, fazendo com que a interface nã
 
 Tudo o que é colocado entre colchetes no tailwind é sub-entendido como código CSS puro
 EX.: [color-scheme:dark] <!--Altera a cor do ícone do data picker-->
+
+Início do código logo após o commit
+  Criação do primeiro componente global - button (por conta da repetibilidade)
+
+  Ponto importante de explicação
+  Duas questões a se considerar na criação de componentes globais
+  1º) O que fazer quando o conteúdo ou as funcionalidades são diferentes?
+  -  Em 'Button' usou-se uma propriedade do React que permite que o componente receba qualquer tipo de conteúdo (não apenas string ou outros tipos, mas, como a classe 'Object' em Java, ReactNode representa qualquer tipo de conteúdo que pode ser inserido).
+  O conteúdo filho recebe qualquer tipo de conteúdo. Em outras palavras:
+  children: ReactNode
+  Ademais, a interface do componente recebe um 'extends', indicando que o objeto pode receber as propriedades e se comportar como um elemento button convencional
+
+  _Para pesquisa_
+  Como parâmetro do componente, usa-se o operador Rest do JS (semelhante ao Spread)
+
+    2º) O que fazer quando o estilo muda a depender de onde o componente está inserido?
+      Existem várias formas de se fazer isso, incluindo criar mais um componente, o que pode não ser tão funcional quando apenas uma ou poucas características mudam.
+      A abordagem utilizada no projeto foi utilizar uma biblioteca do Tailwind chamada:
+      # npm i tailwind-variants #  <!--Segundo o Diego, ela é 'incrível' -->
+
+      Como usar a tailwind-variants?
+      I - Importa-se o 'tv' (tailwind variants)
+      II - Cria-se uma constante que recebe a função tv, cujo parâmetro é um objeto que recebe a estilização genérica (base) e um outro objeto de nome arbitrário que recebe as variações e suas estilizações a seguir (como um CSS convencional).
+      Lembrando que também é possível atribuir uma estilização padrão caso nenhuma seja especificada (defaultVariants). Seu conteúdo é o nome do objeto pai de todas as variantes (como um atributo CSS convencional) que recebe como valor o nome da variante criada
+      III - Na interface, é necessário incluir todas as variantes separadas pelo símbolo '|' (ou)
+        EX.: variant: "primary" | "secondary"
+      IV - Adiciona-se o nome do objeto pai de nome arbitrário como parâmetro do componente
+      V - Adiciona-se o nome da const que recebeu 'tv' e o nome do objeto de nome arbitrário ao className do componente entre chaves e como parâmetro da função da const
+      VI - Atribui-se ao componente inserido no código TSX do arquivo principal a propriedade (atributo) (nome do objeto com nome arbitrário definido no arquivo do componente global, neste caso:) "variant" e o valor necessário
+
+      *Automatizando a adição de variáveis*
+      VII - Importar o 'VariantProps' de tailwind-variants
+      VIII - Adicionar à interface um extends VariantProps<typeof buttonVariants> e remover o variant dela
+
+      ATIVIDADE
+      Fazer um componente para os inputs e para os modais
