@@ -83,3 +83,6 @@ A propriedade "truncate" encurta um link grande, fazendo com que a interface nã
     - Colocar flex-1 na div pai
     - Colocar shrink-0 no elemento que diminuiu 
     Isso determina que ele não diminua, mesmo que os demais elementos sejam maiores
+
+Tudo o que é colocado entre colchetes no tailwind é sub-entendido como código CSS puro
+EX.: [color-scheme:dark] <!--Altera a cor do ícone do data picker-->
