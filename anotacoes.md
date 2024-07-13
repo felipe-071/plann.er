@@ -73,3 +73,13 @@ DICA DE OURO
 O evento de 'submit' também é executado através de uma ação no teclado. Portanto, é interessante incluir a função 'create trip' no evento onSubmit do form, não se limitando ao clique do mouse
 Pesquisar: por que o 'event: FormEvent<HTMLFormElement>' é necessário?
 O critério principal de separação de componentes não é o visual (rodapé, cabeçalho etc), mas a semântica
+
+A propriedade "truncate" encurta um link grande, fazendo com que a interface não quebre
+ - Pesquisar a propriedade fora do Tailwind
+
+ Mas nesse contexto da div dos links que contém o ícone "Link2" do lucide, por que ele diminui de tamanho ao inserir um gap na div pai ou um link grande demais?
+ R: quando se tem um container com display flex e nenhum de seus filhos possui a propriedade 'flex grow' ou 'flex shrink' ele não entende qual dos itens diminuir ou não
+ Alternativas para resolver o problema:
+    - Colocar flex-1 na div pai
+    - Colocar shrink-0 no elemento que diminuiu 
+    Isso determina que ele não diminua, mesmo que os demais elementos sejam maiores
