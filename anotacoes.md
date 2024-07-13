@@ -52,3 +52,24 @@ Funções com parâmetros só podem ser executadas se encapsuladas dentro de fun
 button onClick={() => removeEmailFromInvites(email)} type="button">
                         <X className="size-4 text-zinc-400" />
                       </button>
+
+### AULA 02 ###
+No projeto, foi instalado o React Router, pacote responsável pela criação de rotas do projeto. A const 'router' recebe um array com todas as rotas da aplicação
+Para implementar a navegabilidade, usa-se o "useNavigate" do react-router-dom, que nada mais é que uma função que recebe como parâmetro o link de destino 
+DÚVIDA: Por que não basta apenas colocar o caminho da rota no valor do link?
+
+Desestruturação de 'props'
+
+Antes
+props: InviteGuestsModalProps
+
+Depois (extração de cada propriedade do objeto "props" em uma variável separada)
+
+Detalhamento do commit
+Os trechos do código estão sendo divididos da forma mais semântica possível em componentes, incluindo todos os modais. Dessa forma, transere-se o código para arquivos separados e usa-se o conceito de props para compartilhar as variáveis entre os arquivos. Portanto, o arquivo 'app' fica, maioritariamente, responsável pela centralização das funções usadas, e os demais pelo conteúdo
+Neste caso, o modal de convidar usuários foi incluso em 'app' como um componente com atributos (propriedades). As funções também são repassadas e é criada uma interface no novo arquivo, na qual são tipados os elementos (funções, arrays e etc)
+
+DICA DE OURO
+O evento de 'submit' também é executado através de uma ação no teclado. Portanto, é interessante incluir a função 'create trip' no evento onSubmit do form, não se limitando ao clique do mouse
+Pesquisar: por que o 'event: FormEvent<HTMLFormElement>' é necessário?
+O critério principal de separação de componentes não é o visual (rodapé, cabeçalho etc), mas a semântica
