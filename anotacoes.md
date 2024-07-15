@@ -122,3 +122,14 @@ Início do código logo após o commit
 
       ATIVIDADE
       Fazer um componente para os inputs e para os modais
+
+### AULA 3 - Integrando front-end com a API (back-end) ###
+Considerações sobre o input date: é possível restringir o conteúdo digitado através do próprio HTML, mas só é possível utilizar um mesmo date picker que abrange todo um período somente através de bibliotecas, como, no caso, a 'npm install react-day-picker date-fns'
+
+Os dados dos forms devem ser captados para que se possa efetuar a integração com a API. Entretanto, como o código se subdivide, essa "captação" pode se distribuir em toda a aplicação. É daí que vem o conceito de 'Lift State Up'
+Deve-se reunir as informações dos componentes secundários no principal
+Cria-se um estado para cada informação necessária (destino, data de estadia, etc)
+
+Iniciando a comunicação com a API
+npm install axios
+Criação da pasta 'lib' em src e axios.ts
